@@ -1,3 +1,6 @@
-[submodule "submodule-test"]
-	path = submodule-test
+[submodule "public2"]
+	path = public2
+	url = https://github.com/Malachi-H/ObsidianSite.git
+[submodule "public"]
+	path = public
 	url = https://github.com/Malachi-H/ObsidianSite.git
