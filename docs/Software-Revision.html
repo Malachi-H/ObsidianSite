@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html><head><title>Software Revision</title><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:title" content="Software Revision"/><meta property="og:description" content="Useful notes made by other students: § SDD Accelerated HSC Notes 2022-compressed.pdf SDD Notes - From class of 2015.pdf SDD Notes - MrBrightside.pdf Indigo’s Docs § (Online) edit edit#heading=h."/><meta property="og:image" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta property="og:width" content="1200"/><meta property="og:height" content="675"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="Useful notes made by other students: § SDD Accelerated HSC Notes 2022-compressed.pdf SDD Notes - From class of 2015.pdf SDD Notes - MrBrightside.pdf Indigo’s Docs § (Online) edit edit#heading=h."/><meta name="generator" content="Quartz"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link href="./index.css" rel="stylesheet" type="text/css" spa-preserve/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><link href="https://fonts.googleapis.com/css2?family=IBM Plex Mono&amp;family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap" rel="stylesheet" type="text/css" spa-preserve/><script src="./prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch(`./static/contentIndex.json`).then(data => data.json())</script></head><body data-slug="Software-Revision"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h1 class="page-title"><a href=".">🪴 Quartz 4.0</a></h1><div class="spacer mobile-only"></div><div class="search"><div id="search-icon"><p>Search</p><div></div><svg tabIndex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search</title><desc id="desc">Search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></div><div id="search-container"><div id="search-space"><input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div id="results-container"></div></div></div></div><div class="darkmode"><input class="toggle" id="darkmode-toggle" type="checkbox" tabIndex="-1"/><label id="toggle-label-light" for="darkmode-toggle" tabIndex="-1"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xmlSpace="preserve"><title>Light mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg></label><label id="toggle-label-dark" for="darkmode-toggle" tabIndex="-1"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xmlSpace="preserve"><title>Dark mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></label></div><div class="toc desktop-only"><button type="button" id="toc"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content"><ul class="overflow"><li class="depth-0"><a href="#useful-notes-made-by-other-students" data-for="useful-notes-made-by-other-students">Useful notes made by other students:</a></li><li class="depth-0"><a href="#indigos-docs" data-for="indigos-docs">Indigo's Docs</a></li><li class="depth-0"><a href="#need-to-know" data-for="need-to-know">Need to Know</a></li><li class="depth-0"><a href="#table-config" data-for="table-config">Table Config</a></li></ul></div></div></div><div class="center"><div class="page-header"><div class="popover-hint"><h1 class="article-title">Software Revision</h1><p class="content-meta">Sep 03, 2023, 16 min read</p><ul class="tags"><li><a href="./tags/softwaredd-flashcards" class="internal tag-link">#softwaredd-flashcards</a></li></ul></div></div><article class="popover-hint"><h3 id="useful-notes-made-by-other-students">Useful notes made by other students:<a aria-hidden="true" tabindex="-1" href="#useful-notes-made-by-other-students" class="internal"> §</a></h3>
+<hr/>
+<p><a href="./School/Software/attachments/SDD-Accelerated-HSC-Notes-2022-compressed.pdf" class="internal">SDD Accelerated HSC Notes 2022-compressed.pdf</a>
+<a href="./SDD-Notes---From-class-of-2015.pdf" class="internal">SDD Notes - From class of 2015.pdf</a>
+<a href="./SDD-Notes---MrBrightside.pdf" class="internal">SDD Notes - MrBrightside.pdf</a></p>
+<hr/>
+<h3 id="indigos-docs">Indigo’s Docs<a aria-hidden="true" tabindex="-1" href="#indigos-docs" class="internal"> §</a></h3>
+<hr/>
+<p>(Online)</p>
+<ul>
+<li><a href="https://docs.google.com/document/d/14bkIojjNiuHqU2XLi-LF9PwnWFqXByup-w7UwBg9SmI/edit" class="external">edit</a></li>
+<li><a href="https://docs.google.com/document/d/1BUiIBV3jRgQu_25kAn7RnJZm4NhxIxVfzrI6pkqAdDc/edit#heading=h.5q4t78orcivm" class="external">edit#heading=h.5q4t78orcivm</a>
+(Local - 3/8/2023)</li>
+<li><a href="./School/Software/attachments/Pseudocode-and-Flowchart-Cheatsheet.pdf" class="internal">Pseudocode and Flowchart Cheatsheet.pdf</a></li>
+</ul>
+<hr/>
+<h3 id="need-to-know">Need to Know<a aria-hidden="true" tabindex="-1" href="#need-to-know" class="internal"> §</a></h3>
+<hr/>
+<ul class="contains-task-list">
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> Identifying Issues in Pseudocode</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> System/Solution Models</p>
+<ul>
+<li><a href="#systemsolution-models" class="internal">Flashcards</a></li>
+<li>What are the different ways to model a system?;<br/> <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p4" class="external">Context Diagram</a> (AKA <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p5" class="external">Data Flow Diagram</a>Level 0)<br/> <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p5" class="external">Data Flow Diagram</a>(AKA <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p5" class="external">Data Flow Diagram</a>Level 1)<br/> System Flow Chart<br/><a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p11" class="external">Structure Chart</a> <br/><a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p13" class="external">IPO Chart</a><br/> <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p15" class="external">Data Dictionary</a> <br/><a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p16" class="external">Screen Design</a> <br/>Storyboards</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> Flow Chart</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> Sorting Algorithms</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Quick Sort</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Recognising from Consecutive Sort Steps</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> Searching Algorithms</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Searching Algorithm 1;; Sequential </li>
+<li class="task-list-item"><input type="checkbox" disabled/> Searching Algorithm 2;; Binary </li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> Streams (start and end)(parity)</p>
+<ul>
+<li>The Data Stream sections are;; The Header, the Data Block, and the Trailer Information </li>
+<li>Trailer Information
+<ul>
+<li><a href="https://www.tutorialspoint.com/what-is-a-parity-bit" class="external">Parity Bit Infomation</a></li>
+<li>The Trailer Information Contains;; Error checking bits and a stop bit</li>
+<li>What are the differences between odd and even parity bits?;; <br/>Even Parity − Here the total number of 1 bits in the message is made even. <br/>Odd Parity − Here the total number of 1 bits in the message is made odd. </li>
+<li>What is the value of an even parity bit in a data stream if the number of 1’s is even;; 0   </li>
+<li>What is the value of an even parity bit in a data stream if the number of 1’s is odd;; 1 </li>
+<li>What is the value of an odd parity bit in a data stream if the number of 1’s is even;; 1   </li>
+<li>What is the value of an odd parity bit in a data stream if the number of 1’s is odd;; 0  </li>
+<li></li>
+<li>What is the value of an even parity bit in a data stream if the number of 0’s is even;; 1   </li>
+<li>What is the value of an even parity bit in a data stream if the number of 0’s is odd;; 0 </li>
+<li>What is the value of an odd parity bit in a data stream if the number of 0’s is even;; 0   </li>
+<li>What is the value of an odd parity bit in a data stream if the number of 0’s is odd;; 1  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> Software Development Cycle</p>
+<ul>
+<li><a href="#7f1dfa" class="internal">Flashcards</a></li>
+<li>Software Development Cycle Stage 1;; Defining and Understanding the Problem 
+<ul>
+<li>Determine the requirements of the system and needs of client</li>
+<li>Study existing systems and consult with users</li>
+<li>Feasibility study undertaken</li>
+<li>Design specifications are made</li>
+<li>Development plan is constructed</li>
+</ul>
+</li>
+<li>Software Development Cycle Stage 2;; Planning and Designing the Solution 
+<ul>
+<li>Design of data structures</li>
+<li>Algorithms are created</li>
+<li>Interface design in consultation with client</li>
+<li>Project is broken down into modules</li>
+</ul>
+</li>
+<li>Software Development Cycle Stage 3;; Implementing the Solution
+<ul>
+<li>Solution is coded in a programming language</li>
+<li>Each module is tested as it is coded and then tested in combination with others</li>
+<li>Documentation is made</li>
+</ul>
+</li>
+<li>Software Development Cycle Stage 4;; Testing and Evaluating the Solution 
+<ul>
+<li>Testing for errors as well as performance under live conditions</li>
+<li>Evaluate the system to ensure that all requirements have been met</li>
+</ul>
+</li>
+<li>Software Development Cycle Stage 5;; Modifying/Maintaining the Solution 
+<ul>
+<li>Upgrading to correct errors, add new functionality, improve current functionality</li>
+<li>Each modification uses the steps of the software development cycle</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled/>  Installation Methods</p>
+<ul>
+<li><a href="#methods-of-installation" class="internal">Flashcards</a></li>
+<li>Direct cut-over
+<ul>
+<li>Old system is dropped and new system installed at the same time.</li>
+<li>Used when not feasible to run both systems at the same time</li>
+<li>Data must be converted and imported from old system.</li>
+<li>Users must be trained on new system prior to installation</li>
+</ul>
+</li>
+<li>Parallel
+<ul>
+<li>Both systems operate together for a period of time.</li>
+<li>Allows major problems with new system to be sorted without loss of data</li>
+<li>Users have time to familiarise themselves with new system.</li>
+<li>Used when system is crucial</li>
+</ul>
+</li>
+<li>Phased
+<ul>
+<li>Gradual change from old system to new.</li>
+<li>New product introduced one part at a time</li>
+<li>Often used when product is still under development.</li>
+</ul>
+</li>
+<li>Pilot
+<ul>
+<li>New system is initially installed for a small number of users.</li>
+<li>Users can test system - often considered final test</li>
+<li>Users can learn system so they can teach others</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> <a href="https://docs.google.com/document/d/1ERizOVF-W1DvU94htrm94IBvACSJAhlsorZSezkkJEA/edit#heading=h.gjdgxs" class="external">Development approaches </a></p>
+<ul>
+<li><a href="#development-approaches-table" class="internal">Development Approaches Table</a></li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> Rights of software developers</p>
+<ul>
+<li>Categories of the Rights of software developers;; Intellectual Property, and Quality</li>
+<li></li>
+<li>What is Intellectual Property?; Property resulting from mental labour</li>
+<li>Intellectual Property Rights of Developers; work must be acknowledged and fairly compensated by publishers</li>
+<li></li>
+<li>Developer Rights Regarding Quality; Developer has the right to expect that the hardware and operating systems both operates reliably.</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> Responsibilities of software developers</p>
+<ul>
+<li>Categories of the responsibilities of software developers; Intellectual Property, Quality, Response to Problems, Malware</li>
+<li></li>
+<li>Intellectual Responsibilities of developers; Developers have the responsibility to acknowledge the work of others.</li>
+<li></li>
+<li>What are the factors which determine a software’s quality?; reliability, integrity of data, efficiency, + more</li>
+<li>Responsibilities of the Developer Related to Quality; Solutions should be high quality (especially when involving important data) to reduced the inconvenience of errors</li>
+<li>How is the quality of software ensured?; Through planning, testing, and QA (eg. Discussion with client to ensure software is satisfactory)</li>
+<li></li>
+<li>Responsibilities of the Developer Related the Response to Problems; timely, accurate, and efficient response to problems</li>
+<li>How can a Software Developer Ensure a timely, accurate, and efficient response to problems?; Have a method to assist identification and resolution of errors. Have unambiguous error messages. Have a way to respond to user problems such as a support department</li>
+<li></li>
+<li>Responsibilities of the Developer Related Malware; Ensure their products do not generate, feature, or transmit malware.</li>
+<li>How can a Software Developer ensure that their products do not generate, feature, or transmit malware?; Check new data and software added for viruses. Scan all emails and attachments received by employees. Update antivirus software regularly. Scan all software before distribution. Use firewalls and other security mechanisms.</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> <a href="https://docs.google.com/presentation/d/1pfuyVXSHoOIv913PNJ6H7WufqFIkzfSIHmdtwVroCNA/edit#slide=id.p1" class="external">Translation</a></p>
+<ul>
+<li>Compilation</li>
+<li>Interpretation</li>
+<li>Incremental Compilation</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" checked disabled/> CASE tools</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" checked disabled/> Software licenses</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" checked disabled/> CPU instructions</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" checked disabled/> Fetch Execute Cycle</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" checked disabled/> Relative files</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" checked disabled/> Sequential files pseudo code</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> Binary</p>
+<ul>
+<li>Is 0 True or False?;; False </li>
+<li>is 1 True or False?;; True </li>
+<li>What is the binary digit representation of False?;; 0 </li>
+<li>What is the binary digit representation of True?;; 1 </li>
+</ul>
+</li>
+</ul>
+<p>The steps / actions that are a part of the ‘Defining and Understanding the Problem’ Software Development Cycle stage are:
+?</p>
+<ul>
+<li>Determine the requirements of the system and needs of client</li>
+<li>Study existing systems and consult with users</li>
+<li>Feasibility study undertaken</li>
+<li>Design specifications are made</li>
+<li>Development plan is constructed </li>
+</ul>
+<hr/>
+<p>The following steps / actions are a part of which Software Development Cycle:<br/> ^0d76f8</p>
+<ul>
+<li>Design of data structures</li>
+<li>Algorithms are created</li>
+<li>Interface design in consultation with client</li>
+<li>Project is broken down into modules
+?
+2 - Planning and Designing the Solution </li>
+</ul>
+<p>The steps / actions that are a part of the ‘Planning and Designing the Solution’ Software Development Cycle stage are:
+?</p>
+<ul>
+<li>Design of data structures</li>
+<li>Algorithms are created</li>
+<li>Interface design in consultation with client</li>
+<li>Project is broken down into modules</li>
+</ul>
+<hr/>
+<p>The following steps / actions are a part of which Software Development Cycle:<br/> ^0d76f8</p>
+<ul>
+<li>Solution is coded in a programming language</li>
+<li>Each module is tested as it is coded and then tested in combination with others</li>
+<li>Documentation is made
+?
+3 - Implementing the Solution </li>
+</ul>
+<p>The steps / actions that are a part of the ‘Implementing the Solution’ Software Development Cycle stage are:
+?</p>
+<ul>
+<li>Solution is coded in a programming language</li>
+<li>Each module is tested as it is coded and then tested in combination with others</li>
+<li>Documentation is made</li>
+</ul>
+<hr/>
+<p>The following steps / actions are a part of which Software Development Cycle:<br/> ^0d76f8</p>
+<ul>
+<li>Testing for errors as well as performance under live conditions</li>
+<li>Evaluate the system to ensure that all requirements have been met
+?
+4 - Testing and Evaluating the Solution </li>
+</ul>
+<p>The steps / actions that are a part of the ‘Testing and Evaluating the Solution’ Software Development Cycle stage are:
+?</p>
+<ul>
+<li>Testing for errors as well as performance under live conditions</li>
+<li>Evaluate the system to ensure that all requirements have been met </li>
+</ul>
+<hr/>
+<p>The following steps / actions are a part of which Software Development Cycle:<br/> ^0d76f8</p>
+<ul>
+<li>Upgrading to correct errors, add new functionality, improve current functionality</li>
+<li>Each modification uses the steps of the software development cycle 
+?
+Modifying/Maintaining the Solution</li>
+</ul>
+<p>The steps / actions that are a part of the ‘Modifying/Maintaining the Solution’ Software Development Cycle stage are:
+?</p>
+<ul>
+<li>Upgrading to correct errors, add new functionality, improve current functionality</li>
+<li>Each modification uses the steps of the software development cycle</li>
+</ul>
+<hr/>
+<h4 id="methods-of-installation">Methods of Installation<a aria-hidden="true" tabindex="-1" href="#methods-of-installation" class="internal"> §</a></h4>
+<hr/>
+<p>What are the installation methods?
+?</p>
+<ul>
+<li>Direct Cut-Over</li>
+<li>Parallel</li>
+<li>Phased</li>
+<li>Pilot </li>
+</ul>
+<hr/>
+<p>What is the Direct Cut-Over Installation method?
+?</p>
+<ul>
+<li>Old system is dropped and new system installed at the same time.</li>
+<li>Used when not feasible to run both systems at the same time</li>
+<li>Data must be converted and imported from old system.</li>
+<li>Users must be trained on new system prior to installation </li>
+</ul>
+<p>Which Method of Installation is described by the following characteristics?</p>
+<ul>
+<li>Old system is dropped and new system installed at the same time.</li>
+<li>Used when not feasible to run both systems at the same time</li>
+<li>Data must be converted and imported from old system.</li>
+<li>Users must be trained on new system prior to installation
+?
+Direct Cut-Over </li>
+</ul>
+<hr/>
+<p>What is the Parallel Installation method?
+?</p>
+<ul>
+<li>Both systems operate together for a period of time.</li>
+<li>Allows major problems with new system to be sorted without loss of data</li>
+<li>Users have time to familiarise themselves with new system.</li>
+<li>Used when system is crucial </li>
+</ul>
+<p>Which Method of Installation is described by the following characteristics?</p>
+<ul>
+<li>Both systems operate together for a period of time.</li>
+<li>Allows major problems with new system to be sorted without loss of data</li>
+<li>Users have time to familiarise themselves with new system.</li>
+<li>Used when system is crucial
+?
+Parallel </li>
+</ul>
+<hr/>
+<p>What is the Phased Installation method?
+?</p>
+<ul>
+<li>Gradual change from old system to new.</li>
+<li>New product introduced one part at a time</li>
+<li>Often used when product is still under development. </li>
+</ul>
+<p>Which Method of Installation is described by the following characteristics?</p>
+<ul>
+<li>Gradual change from old system to new.</li>
+<li>New product introduced one part at a time</li>
+<li>Often used when product is still under development.
+?
+Phased </li>
+</ul>
+<hr/>
+<p>What is the Pilot Installation method?
+?</p>
+<ul>
+<li>New system is initially installed for a small number of users.</li>
+<li>Users can test system - often considered final test</li>
+<li>Users can learn system so they can teach others </li>
+</ul>
+<p>Which Method of Installation is described by the following characteristics?</p>
+<ul>
+<li>New system is initially installed for a small number of users.</li>
+<li>Users can test system - often considered final test</li>
+<li>Users can learn system so they can teach others
+?
+Pilot </li>
+</ul>
+<hr/>
+<hr/>
+<h4 id="systemsolution-models">System/Solution Models<a aria-hidden="true" tabindex="-1" href="#systemsolution-models" class="internal"> §</a></h4>
+<hr/>
+<h5 id="context-diagram"><a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p4" class="external">Context Diagram</a><a aria-hidden="true" tabindex="-1" href="#context-diagram" class="internal"> §</a></h5>
+<p>What is a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p4" class="external">Context Diagram</a>?
+?
+<img src="./School/Software/attachments/Context-Diagram.jpg" width="auto" height="auto"/> ^63d7e2</p>
+<ul>
+<li>A <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p4" class="external">Context Diagram</a> is used to represent an overview of the system.</li>
+<li>It does not show sequence of events but order can be implied based on scenario</li>
+</ul>
+<p>What type of diagram is depicted in the following image?
+<img src="./School/Software/attachments/Context-Diagram.jpg" width="auto" height="auto"/>
+?
+<a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p4" class="external">Context Diagram</a> </p>
+<p>In a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p4" class="external">Context Diagram</a>, what shape is used to represent external entities?; A circle</p>
+<p>In a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p4" class="external">Context Diagram</a>, what shape is used to represent processes?; A rectangle</p>
+<p>Are flow direction arrows required on a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p4" class="external">Context Diagram</a>?; Yes</p>
+<p>Are data labels required on a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p4" class="external">Context Diagram</a>?; Yes</p>
+<p>Are databases needed in a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p4" class="external">Context Diagram</a>?; No</p>
+<p>Can <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p4" class="external">Context Diagram</a>lines be curved?; Yes</p>
+<p>Does a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p4" class="external">Context Diagram</a> show the sequence of operations?; No</p>
+<hr/>
+<h5 id="data-flow-diagram"><a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p5" class="external">Data Flow Diagram</a><a aria-hidden="true" tabindex="-1" href="#data-flow-diagram" class="internal"> §</a></h5>
+<p>What is a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p5" class="external">Data Flow Diagram</a>?
+?
+<img src="./School/Software/attachments/Data-Flow-Diagram.png" width="auto" height="auto"/></p>
+<ul>
+<li>Represents the system as a number of processes, External Entities and Data stores.</li>
+<li>A <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p5" class="external">Data Flow Diagram</a> is a refinement of a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p4" class="external">Context Diagram</a>used to show the sources and destinations of data along with the flow the data takes between processes </li>
+</ul>
+<p>What symbols are used in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p5" class="external">Data Flow Diagrams</a>?
+?</p>
+<ul>
+<li>Circles for processes</li>
+<li>Rectangles for external entities</li>
+<li>3 sided rectangles for data stores.</li>
+</ul>
+<p>Do the lines in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p5" class="external">Data Flow Diagrams</a> need arrows indicating the direction of data flow?; Yes</p>
+<p>Can the lines in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p5" class="external">Data Flow Diagrams</a> be curved?; Yes</p>
+<p>Do <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p5" class="external">Data Flow Diagrams</a> need labels for the data?; Yes</p>
+<p>Can <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p5" class="external">Data Flow Diagrams</a> have two directional arrows?; No</p>
+<p>Can a data store in a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p5" class="external">Data Flow Diagram</a> be a non-computer storage file e.g. Paper folder?; Yes</p>
+<p>Does a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p5" class="external">Data Flow Diagram</a>show the sequence of operations?; No</p>
+<hr/>
+<h5 id="system-flow-chart"><a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Chart</a><a aria-hidden="true" tabindex="-1" href="#system-flow-chart" class="internal"> §</a></h5>
+<p>What is a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Chart</a>
+?
+<img src="./School/Software/attachments/System-Flow-Chart.png" width="auto" height="auto"/></p>
+<ul>
+<li>Shows the flow of data</li>
+<li>Shows the individual system modules</li>
+<li>Shows the media used </li>
+</ul>
+<p>Can the lines in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a> be curved?; No</p>
+<p>Do the lines in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a> need arrows to indicate direction of flow?; Yes</p>
+<p>Can the lines in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a> have two directional arrows? (on line with an arrow on each end); Yes</p>
+<p>What is the symbol used in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a> to indicate ‘input and output’?
+?
+Parallelogram
+<img src="./School/Software/attachments/System-Flow-Chart---Input-and-Output.png" width="auto" height="auto"/></p>
+<p>What is this symbol used to indicate in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a>?
+<img src="https://i.imgur.com/3k9UZVM.png" alt/>
+?
+Input and Output </p>
+<p>What is the symbol used in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a> to indicate ‘Paper Document’?
+?
+Rectangle with a squiggly base
+<img src="https://i.imgur.com/kOj90iV.png" alt/></p>
+<p>What is this symbol used to indicate in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a>?
+<img src="https://i.imgur.com/0davMlx.png" alt/>
+?
+Paper document </p>
+<p>What is the symbol used in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a> to indicate ‘online display’?
+?
+Left angle bracket with two lines to coming of the top and bottom of the angled bracket to connect it to a right parenthesise.
+<img src="https://i.imgur.com/JFC7qSb.png" alt/></p>
+<p>What is this symbol used to indicate in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a>?
+<img src="https://i.imgur.com/WHERfv0.png" alt/>
+?
+Online Display </p>
+<p>What is the symbol used in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a> to indicate ‘online input’?
+?
+Rectangle with a positively slanted top.
+<img src="https://i.imgur.com/63AP3ZW.png" alt/></p>
+<p>What is this symbol used to indicate in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a>?
+<img src="https://i.imgur.com/uh6Pf0p.png" alt/>
+?
+Input and Output</p>
+<p>What is the symbol used in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a> to indicate ‘punched card’?
+?
+Rectangle with the top left corner cut off.
+<img src="https://i.imgur.com/KWWG4Ja.png" alt/> </p>
+<p>What is this symbol used to indicate in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a>?
+<img src="https://i.imgur.com/pRSR0BC.png" alt/>
+?
+Punched Card </p>
+<p>What is the symbol used in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a> to indicate ‘process’?
+?
+Rectangle
+<img src="https://i.imgur.com/fVPqS3d.png" alt/></p>
+<p>What is this symbol used to indicate in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a>?
+<img src="https://i.imgur.com/LpwJUOt.png" alt/>
+?
+Process</p>
+<p>What is the symbol used in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a> to indicate ‘manual operation’?
+?
+Point down isosceles triangle with the point cut off
+<img src="https://i.imgur.com/nZmLNgW.png" alt/></p>
+<p>What is this symbol used to indicate in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a>?
+<img src="https://i.imgur.com/elxmPXT.png" alt/>
+?
+Manual Operation </p>
+<p>What is the symbol used in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a> to indicate ‘Magnetic Tape’?
+?
+Circle with the base extruded into a rectangle that vertically aligns to the right side of the circle.
+<img src="https://i.imgur.com/aAAsNtP.png" alt/> </p>
+<p>What is this symbol used to indicate in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a>?
+<img src="https://i.imgur.com/zsOoRil.png" alt/>
+?
+Magnetic Tape </p>
+<p>What is the symbol used in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a> to indicate ‘Disk Drive’?
+?
+Cylinder viewed from a front-top angle
+<img src="https://i.imgur.com/5wbigAR.png" alt/></p>
+<p>What is this symbol used to indicate in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a>?
+<img src="https://i.imgur.com/ObbMBSQ.png" alt/>
+?
+Disk Drive</p>
+<p>What is the symbol used in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a> to indicate ‘Decision’?
+?
+Diamond
+<img src="https://i.imgur.com/Ef9qult.png" alt/></p>
+<p>What is this symbol used to indicate in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a> (apparently largly depricated / unused ?
+<img src="https://i.imgur.com/5CiGfUw.png" alt/>
+?
+Decision</p>
+<p>What is the symbol used in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a> to indicate ‘Telecommunications’?
+?
+An elongated ‘Z’
+<img src="https://i.imgur.com/TFL535s.png" alt/> </p>
+<p>What is this symbol used to indicate in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p8" class="external">System Flow Charts</a>?
+<img src="https://i.imgur.com/Z0fVkai.png" alt/>
+?
+Telecommunications</p>
+<h5 id="structure-chart"><a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p11" class="external">Structure Chart</a><a aria-hidden="true" tabindex="-1" href="#structure-chart" class="internal"> §</a></h5>
+<p>What is a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p11" class="external">Structure Chart</a>?
+?
+System model to represent the separate modules and subroutines and their relationships to one each other
+<img src="./School/Software/attachments/Structure-Chart.png" width="auto" height="auto"/></p>
+<p>Can <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p11" class="external">Structure Charts</a> have curved lines?; No</p>
+<p>Do <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p11" class="external">Structure Charts</a> need arrows to indicate direction of data flow?; No</p>
+<p>What is the symbol used to represent a module in a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p11" class="external">Structure Chart</a>?; Rectangle</p>
+<p>How is data movement represented in a structure chart?; By Labelled Parameters</p>
+<p>How are parameters represented in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p11" class="external">Structure Charts</a>?; As small not filled in circles with connected arrows indicating the direction of data movement. Text labels are next to each parameter to describe the data.</p>
+<p>What are parameters in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p11" class="external">Structure Charts</a>?; Data movement variables that are parsed between subroutines.</p>
+<p>What are flags in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p11" class="external">Structure Charts</a>?; A control parameter. Like a normal parameter but can only be a Boolean value.</p>
+<p>How are flags represented in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p11" class="external">Structure Charts</a>?; As filled in circles with a connected arrow indicating the direction that the flag is being passed. Has a text label to describe the flag.</p>
+<p>How are optional subroutine / module calls represented in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p11" class="external">Structure Charts</a>?; As Diamonds overlaying the connection line.</p>
+<p>How are binary decisions represented in <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p11" class="external">Structure Charts</a>?; as a right angle symbol between the two connection lines of the models/processes that follow the decision.</p>
+<p>How are loops / repetition represented in structure charts?; As an arced arrow forming half an oval around the connection line or lines.</p>
+<h5 id="ipo-chart"><a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p13" class="external">IPO Chart</a><a aria-hidden="true" tabindex="-1" href="#ipo-chart" class="internal"> §</a></h5>
+<p>What is an <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p13" class="external">IPO Chart</a>?
+?
+<img src="https://i.imgur.com/YzQmepR.png" alt/></p>
+<ul>
+<li>An IPO (Input, Process, Output) Chart is a way of documenting the data in a system.</li>
+<li>The Input for each major process is recorded</li>
+<li>Major processors are described</li>
+<li>The outputs to the major processes are recorded </li>
+</ul>
+<p>Can an <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p13" class="external">IPO Charts</a> process section have multiple instructions?; Yes. Describes all the instructions in the process</p>
+<p>Are the data types of inputs and outputs required in an <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p13" class="external">IPO Chart</a>?; No</p>
+<h5 id="data-dictionary"><a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p15" class="external">Data Dictionary</a><a aria-hidden="true" tabindex="-1" href="#data-dictionary" class="internal"> §</a></h5>
+<p>What is a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p15" class="external">Data Dictionary</a>?
+?</p>
+<ul>
+<li>A <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p15" class="external">Data Dictionary</a> contains a comprehensive description of each data item in the system</li>
+<li>Commonly Required Fields:
+<ul>
+<li>Data Item (Variable name)</li>
+<li>Data Type</li>
+<li>Format</li>
+<li>Number of Bytes Required for Storage</li>
+<li>Size for Display</li>
+<li>Description</li>
+<li>Example</li>
+</ul>
+</li>
+<li>Other Data Fields:
+<ul>
+<li>Validation
+<img src="https://i.imgur.com/VbnTZF8.png" alt/></li>
+</ul>
+</li>
+</ul>
+<p>What are the fields required in a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p15" class="external">Data Dictionary</a>?
+?</p>
+<ul>
+<li>Data Item (Variable name)</li>
+<li>Data Type</li>
+<li>Format</li>
+<li>Number of Bytes Required for Storage</li>
+<li>Size for Display</li>
+<li>Description</li>
+<li>Example</li>
+</ul>
+<p>How many commonly required fields in a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p15" class="external">Data Dictionary</a>?
+?
+7:</p>
+<ul>
+<li>Data Item (Variable name)</li>
+<li>Data Type</li>
+<li>Format</li>
+<li>Number of Bytes Required for Storage</li>
+<li>Size for Display</li>
+<li>Description</li>
+<li>Example </li>
+</ul>
+<h5 id="screen-design"><a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p16" class="external">Screen Design</a><a aria-hidden="true" tabindex="-1" href="#screen-design" class="internal"> §</a></h5>
+<p>What is a <a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p16" class="external">Screen Design</a>?
+?</p>
+<ul>
+<li>A depiction of the design and layout of the user interface</li>
+<li>Focus on usability and making user interactions as simple as possible.</li>
+<li>Should use common interface elements. e.g. checkboxes</li>
+<li>Consider the screen size and dimensions</li>
+<li>Identify the required data fields and screen elements along with their placement.</li>
+<li>Should be consistent</li>
+<li>May use labels with arrows to provide description of elements such as colour, images, or text font
+<img src="https://i.imgur.com/Rm8iecy.png" alt/> </li>
+</ul>
+<h5 id="storyboard"><a href="https://docs.google.com/presentation/d/1N50Sd64Cpz3iV9PCGc_Q2Xg1r1Mw5tbVkIET9jfpZk0/edit#slide=id.p17" class="external">Storyboard</a><a aria-hidden="true" tabindex="-1" href="#storyboard" class="internal"> §</a></h5>
+<p>What is a storyboard?
+?</p>
+<ul>
+<li>Shows the interfaces (screens) in a system and the links between them</li>
+<li>Input and output areas should be clearly defined</li>
+<li>Navigation elements such as buttons should be clearly defined</li>
+<li>Linking lines should originate from the element that triggers the change in screen</li>
+<li>Should be detailed enough to determine purpose
+<img src="https://i.imgur.com/sahzNp4.png" alt/></li>
+</ul>
+<p>How are the links between screens in a storyboard depicted?; With straight arrows between the button that directs you to the screen and the screen.</p>
+<p>Can you use labels to indicate moving to a screen that is incontinent to connect to. e.g. (back to home screen); Yes</p>
+<p>Can you have labels next to screens in a storyboard to indicate extra information about the screen?; Yes</p>
+<h3 id="table-config">Table Config<a aria-hidden="true" tabindex="-1" href="#table-config" class="internal"> §</a></h3>
+<hr/>
+<h4 id="development-approaches-table">Development Approaches Table<a aria-hidden="true" tabindex="-1" href="#development-approaches-table" class="internal"> §</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Development Approach</th><th>Characteristics</th><th>Suited for</th></tr></thead><tbody><tr><td>Structured</td><td>5 stages, detailed planning, large team, long timeline</td><td>Large, complex projects with high budget and time</td></tr><tr><td>Agile</td><td>Fast, iterative, small team with client, planning as needed</td><td>Software that is regularly modified and updated</td></tr><tr><td>Prototyping</td><td>Client involvement, successive prototypes</td><td>UI/user-focused projects, unique needs/small budget</td></tr><tr><td>RAD</td><td>Fast, cheap, uses existing modules, client involvement</td><td>Low budget, small scale projects, quick timeline</td></tr><tr><td>End-User</td><td>End user developer, cheap, fast, no documentation</td><td>Small long-term projects for the end user</td></tr></tbody></table></article></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1}"></div><svg version="1.1" id="global-graph-icon" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xmlSpace="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+	s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+	c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+	C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+	c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+	v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+	s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+	C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+	S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+	s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+	s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1}"></div></div></div><div class="backlinks"><h3>Backlinks</h3><ul class="overflow"><li><a href="./SoftwareDD" class="internal">SoftwareDD</a></li></ul></div></div></div><footer><hr/><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.0.10</a>, © 2023</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></body><script type="application/javascript">// quartz/components/scripts/quartz/components/scripts/callout.inline.ts
+function toggleCallout() {
+  const outerBlock = this.parentElement;
+  outerBlock.classList.toggle(`is-collapsed`);
+  const collapsed = outerBlock.classList.contains(`is-collapsed`);
+  const height = collapsed ? this.scrollHeight : outerBlock.scrollHeight;
+  outerBlock.style.maxHeight = height + `px`;
+  let current = outerBlock;
+  let parent = outerBlock.parentElement;
+  while (parent) {
+    if (!parent.classList.contains(`callout`)) {
+      return;
+    }
+    const collapsed2 = parent.classList.contains(`is-collapsed`);
+    const height2 = collapsed2 ? parent.scrollHeight : parent.scrollHeight + current.scrollHeight;
+    parent.style.maxHeight = height2 + `px`;
+    current = parent;
+    parent = parent.parentElement;
+  }
+}
+function setupCallout() {
+  const collapsible = document.getElementsByClassName(
+    `callout is-collapsible`
+  );
+  for (const div of collapsible) {
+    const title = div.firstElementChild;
+    if (title) {
+      title.removeEventListener(`click`, toggleCallout);
+      title.addEventListener(`click`, toggleCallout);
+      const collapsed = div.classList.contains(`is-collapsed`);
+      const height = collapsed ? title.scrollHeight : div.scrollHeight;
+      div.style.maxHeight = height + `px`;
+    }
+  }
+}
+document.addEventListener(`nav`, setupCallout);
+window.addEventListener(`resize`, setupCallout);
+</script><script type="module">
+          import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+          const darkMode = document.documentElement.getAttribute('saved-theme') === 'dark'
+          mermaid.initialize({
+            startOnLoad: false,
+            securityLevel: 'loose',
+            theme: darkMode ? 'dark' : 'default'
+          });
+          document.addEventListener('nav', async () => {
+            await mermaid.run({
+              querySelector: '.mermaid'
+            })
+          });
+          </script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="./postscript.js" type="module"></script></html>
